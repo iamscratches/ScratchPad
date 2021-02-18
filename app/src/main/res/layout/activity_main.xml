@@ -4,16 +4,17 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/scratch_logo"
     tools:context=".MainActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
         android:layout_marginLeft="20dp"
+        android:layout_marginTop="100dp"
         android:layout_marginRight="20dp"
         android:layout_marginBottom="100dp"
-        android:layout_marginTop="100dp">
+        android:orientation="vertical">
 
         <TextView
             android:id="@+id/textView"
@@ -59,6 +60,22 @@
                 android:inputType="textPersonName"
                 android:textStyle="italic" />
 
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="0"
+                android:text="X" />
+
+            <EditText
+                android:id="@+id/etQuantity"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:ems="10"
+                android:hint="quantity"
+                android:inputType="textPersonName" />
+
             <EditText
                 android:id="@+id/etAmount"
                 android:layout_width="wrap_content"
@@ -74,7 +91,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="0"
-            android:backgroundTint="#514F4F"
             android:onClick="addDatabase"
             android:text="Add" />
 
@@ -83,7 +99,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="0"
-            android:backgroundTint="#514F4F"
             android:onClick="viewDatabase"
             android:text="view" />
     </LinearLayout>
