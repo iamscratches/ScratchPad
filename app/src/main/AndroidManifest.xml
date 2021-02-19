@@ -9,7 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.ScratchPad">
-        <activity android:name=".ViewActivity"></activity>
+        <activity android:name=".FreeActivity"></activity>
+        <activity android:name=".ViewActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

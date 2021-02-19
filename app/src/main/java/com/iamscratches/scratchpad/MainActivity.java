@@ -116,4 +116,9 @@ public class MainActivity extends AppCompatActivity {
         if(!arr.contains(dbName))
             arr.add(dbName);
     }
+
+    public void freepadLayout(View view) {
+        Intent intent = new Intent(this, FreeActivity.class);
+        startActivity(intent);
+    }
 }
