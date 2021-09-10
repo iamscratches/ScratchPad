@@ -62,7 +62,7 @@ public class ViewActivity extends AppCompatActivity {
         dbSelect.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                Toast.makeText(getApplicationContext(), arr.get(position), Toast.LENGTH_LONG).show();
+//                Toast.makeText(getApplicationContext(), arr.get(position), Toast.LENGTH_LONG).show();
                 dbName = arr.get(position);
                 total = 0;
                 items = 0;
@@ -92,6 +92,7 @@ public class ViewActivity extends AppCompatActivity {
     public void delNotepad(View view) {
         if(arr.size()>1) {
             db.drop(dbName);
+            Toast.makeText(this,"Notepad " + dbName + " deleted", Toast.LENGTH_LONG).show();
             dbName = arr.get(0);
             findNotePads();
         }

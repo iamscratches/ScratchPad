@@ -86,12 +86,24 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void addDatabase(View view) {
-        String item = etItem.getText().toString();
-        String quantity = etQuantity.getText().toString();
-        float amount = Float.parseFloat(etAmount.getText().toString());
         if(etDBName.getVisibility()==View.VISIBLE){
             dbName = etDBName.getText().toString();
+            dbName = dbName.replaceAll(" ","_");
         }
+        if(dbName.equals("")){
+            Toast.makeText(this, "Select a notepad first or create a new one", Toast.LENGTH_LONG).show();
+            return;
+        }
+
+        String item = etItem.getText().toString();
+        String quantity = etQuantity.getText().toString();
+        float amount = 0;
+        if(etAmount.getText().toString().equals("") || item.equals("")){
+            Toast.makeText(this, "Item and amount field can't ve empty", Toast.LENGTH_LONG).show();
+            return;
+        }
+        else
+            amount = Float.parseFloat(etAmount.getText().toString());
 
         db.enterTableData(dbName, item, quantity, amount);
         Cursor cursor = db.query(dbName);
@@ -112,7 +124,7 @@ public class MainActivity extends AppCompatActivity {
                         cursor.getString(cursor.getColumnIndex("tableName")) + "\n";
             }while (cursor.moveToNext());
         }
-        Toast.makeText(this, tableData, Toast.LENGTH_LONG).show();
+//        Toast.makeText(this, tableData, Toast.LENGTH_LONG).show();
         if(!arr.contains(dbName))
             arr.add(dbName);
     }
