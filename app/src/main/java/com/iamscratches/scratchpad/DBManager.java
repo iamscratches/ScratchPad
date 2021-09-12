@@ -80,7 +80,8 @@ public class DBManager {
     private long Insert(String tableName, ContentValues values){
         try{
             long ID = sqlDB.insert(tableName,"",values);// if fails to insert then ID = 0
-            Toast.makeText(context,"Data recorded succesfully with ID : " + String.valueOf(ID), Toast.LENGTH_LONG).show();
+            if(ID!=-1)
+                Toast.makeText(context,"Data recorded succesfully with ID : " + String.valueOf(ID), Toast.LENGTH_LONG).show();
             return ID;
         }catch (Exception e){};
         return 0;

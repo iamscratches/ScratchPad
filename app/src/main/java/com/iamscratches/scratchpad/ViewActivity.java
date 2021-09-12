@@ -191,13 +191,22 @@ public class ViewActivity extends AppCompatActivity {
                 }
             });
 
+            myView.setOnLongClickListener(new View.OnLongClickListener() {
+                @Override
+                public boolean onLongClick(View v) {
+                    Toast.makeText(getApplicationContext(), s.item + " " + s.ID + " " + s.quantity + " " +s.amount, Toast.LENGTH_SHORT).show();
+                    addDatabase(s);
+                    updateListView();
+                    return true;
+                }
+            });
+
             myView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     Toast.makeText(getApplicationContext(), s.date, Toast.LENGTH_SHORT).show();
                 }
             });
-
             return myView;
         }
 
@@ -250,5 +259,11 @@ public class ViewActivity extends AppCompatActivity {
         myadapter.notifyDataSetChanged();
         tvTotalAmount.setText(String.valueOf(total));
         tvTotalItems.setText(String.valueOf(items));
+    }
+    public void addDatabase(AdapterItems data) {
+        String item = data.item;
+        String quantity = data.quantity;
+        float amount = data.amount;
+        db.enterTableData(dbName, item, quantity, amount);
     }
 }
